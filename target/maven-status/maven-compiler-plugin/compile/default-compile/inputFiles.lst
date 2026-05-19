@@ -5,6 +5,7 @@
 /Users/wsq/work/Agent/api-inspect-agent/src/main/java/com/inspect/agent/analysis/ExceptionAnalysisService.java
 /Users/wsq/work/Agent/api-inspect-agent/src/main/java/com/inspect/agent/common/BusinessException.java
 /Users/wsq/work/Agent/api-inspect-agent/src/main/java/com/inspect/agent/common/GlobalExceptionHandler.java
+/Users/wsq/work/Agent/api-inspect-agent/src/main/java/com/inspect/agent/common/MyMetaObjectHandler.java
 /Users/wsq/work/Agent/api-inspect-agent/src/main/java/com/inspect/agent/common/Result.java
 /Users/wsq/work/Agent/api-inspect-agent/src/main/java/com/inspect/agent/config/AgentConfig.java
 /Users/wsq/work/Agent/api-inspect-agent/src/main/java/com/inspect/agent/config/LLMConfig.java

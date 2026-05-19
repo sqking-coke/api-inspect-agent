@@ -251,11 +251,56 @@ mvn clean package -DskipTests
 java -jar target/api-inspect-agent-1.0.0.jar
 ```
 
-### 2.5 验证
+### 2.5 录入用例
+
+```bash
+curl -X POST http://localhost:9090/agent/inspect/case/save \
+  -H "Content-Type: application/json" \
+  -d '{
+    "caseName": "用户登录接口",
+    "apiUrl": "http://your-service/api/user/login",
+    "method": "POST",
+    "requestHeader": "{\"Content-Type\":\"application/json\"}",
+    "requestBody": "{\"username\":\"admin\",\"password\":\"123456\"}",
+    "timeout": 5000, "retryCount": 2,
+    "assertRule": "{\"statusCode\":200,\"bodyContains\":\"token\"}",
+    "groupName": "用户模块", "status": 1
+  }'
+```
+
+### 2.6 手动触发巡检
+
+```bash
+# 全量并行巡检
+curl -X POST http://localhost:9090/agent/inspect/start \
+  -H "Content-Type: application/json" \
+  -d '{"executeMode": "PARALLEL"}'
+
+# 指定用例串行巡检
+curl -X POST http://localhost:9090/agent/inspect/start \
+  -H "Content-Type: application/json" \
+  -d '{"executeMode": "SERIAL", "caseIds": [1,3,5]}'
+```
+
+### 2.7 开启定时巡检
+
+```bash
+curl -X PUT http://localhost:9090/agent/config \
+  -H "Content-Type: application/json" \
+  -d '{"cronExpression": "0 0 2,6,10,14,18,22 * * ?", "cronEnabled": true}'
+```
+
+### 2.8 分页查询巡检任务列表
 
 ```bash
 curl http://localhost:9090/agent/inspect/task/list?page=1&size=5
 # 预期: {"code":200,"message":"success","data":{"total":0,...}}
+```
+
+### 2.9 查看报告
+
+```bash
+curl http://localhost:9090/agent/inspect/report/1001
 ```
 
 ---
