@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.inspect.agent.entity.ApiInspectCase;
 import org.apache.ibatis.annotations.Mapper;
 
+/**
+ * 巡检用例 Mapper。
+ */
 @Mapper
 public interface ApiInspectCaseMapper extends BaseMapper<ApiInspectCase> {
 }
