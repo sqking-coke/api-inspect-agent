@@ -72,6 +72,52 @@
 
 ## 3. 整体架构设计
 
+```aiignore
+api-inspect-agent/
+├── pom.xml                          # Maven 依赖
+├── sql/
+│   └── init.sql                     # 完整建库建表 + 初始数据
+├── src/main/java/com/inspect/agent/
+│   ├── AgentApplication.java        # SpringBoot 启动类
+│   ├── config/                      # 配置类
+│   │   ├── LLMConfig.java           # 大模型客户端配置
+│   │   ├── ThreadPoolConfig.java    # 线程池配置
+│   │   └── MyBatisPlusConfig.java   # MyBatis-Plus 配置
+│   ├── controller/                  # 接入层
+│   │   ├── InspectController.java   # 巡检任务接口
+│   │   └── CaseController.java      # 用例管理接口
+│   ├── service/                     # 业务服务
+│   │   ├── InspectTaskService.java
+│   │   ├── CaseService.java
+│   │   └── impl/
+│   ├── agent/                       # Agent 核心调度
+│   │   ├── AgentCore.java           # 核心调度引擎
+│   │   └── AgentContext.java        # 执行上下文
+│   ├── tool/                        # 工具模块
+│   │   ├── HttpInvokeTool.java      # HTTP 调用工具
+│   │   ├── AssertTool.java          # 断言校验工具
+│   │   └── RetryTool.java           # 失败重试工具
+│   ├── llm/                         # LLM 模块
+│   │   ├── LLMClient.java           # 大模型客户端
+│   │   └── LLMPromptTemplates.java  # Prompt 模板
+│   ├── analysis/                    # 异常分析
+│   │   └── ExceptionAnalysisService.java
+│   ├── report/                      # 报告生成
+│   │   └── ReportService.java
+│   ├── alert/                       # 告警模块
+│   │   └── AlertService.java
+│   ├── scheduler/                   # 定时任务
+│   │   └── InspectScheduler.java
+│   ├── entity/                      # 实体类
+│   ├── mapper/                      # MyBatis Mapper
+│   ├── dto/                         # 数据传输对象
+│   └── common/                      # 通用类（Result、异常处理）
+└── src/main/resources/
+    ├── application.yml
+    ├── application-dev.yml
+    └── application-prod.yml
+```
+
 ### 3.1 架构思想
 
 采用 **Java 后端分层工程化 + Agent 经典闭环架构**：思考（LLM 决策）→ 行动（接口巡检）→ 观察（结果收集）→ 总结（AI 分析报告）。
