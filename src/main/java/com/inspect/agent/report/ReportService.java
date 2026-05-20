@@ -1,20 +1,17 @@
 package com.inspect.agent.report;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.inspect.agent.common.BusinessException;
-import com.inspect.agent.dto.ReportDTO;
-import com.inspect.agent.entity.ApiInspectLog;
-import com.inspect.agent.entity.ApiInspectTask;
-import com.inspect.agent.llm.LLMClient;
-import com.inspect.agent.llm.LLMPromptTemplates;
-import com.inspect.agent.mapper.ApiInspectLogMapper;
-import com.inspect.agent.mapper.ApiInspectTaskMapper;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import com.baomidou.mybatisplus.core.conditions.query.*;
+import com.inspect.agent.common.*;
+import com.inspect.agent.dto.*;
+import com.inspect.agent.entity.*;
+import com.inspect.agent.llm.*;
+import com.inspect.agent.mapper.*;
+import lombok.*;
+import lombok.extern.slf4j.*;
+import org.springframework.stereotype.*;
 
-import java.time.format.DateTimeFormatter;
-import java.util.List;
+import java.time.format.*;
+import java.util.*;
 
 /**
  * 巡检报告服务，负责生成巡检报告和 AI 摘要。

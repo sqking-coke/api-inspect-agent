@@ -1,27 +1,19 @@
 package com.inspect.agent.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.inspect.agent.agent.AgentCore;
-import com.inspect.agent.agent.AgentContext;
-import com.inspect.agent.analysis.ExceptionAnalysisService;
-import com.inspect.agent.common.Result;
-import com.inspect.agent.dto.ChatRequest;
-import com.inspect.agent.dto.InspectResult;
-import com.inspect.agent.dto.ReportDTO;
-import com.inspect.agent.dto.TaskStartRequest;
-import com.inspect.agent.entity.ApiInspectCase;
-import com.inspect.agent.entity.ApiInspectLog;
-import com.inspect.agent.entity.ApiInspectTask;
-import com.inspect.agent.mapper.ApiInspectLogMapper;
-import com.inspect.agent.report.ReportService;
-import com.inspect.agent.service.CaseService;
-import com.inspect.agent.service.InspectTaskService;
-import lombok.RequiredArgsConstructor;
+import com.baomidou.mybatisplus.core.conditions.query.*;
+import com.baomidou.mybatisplus.extension.plugins.pagination.*;
+import com.inspect.agent.agent.*;
+import com.inspect.agent.analysis.*;
+import com.inspect.agent.common.*;
+import com.inspect.agent.dto.*;
+import com.inspect.agent.entity.*;
+import com.inspect.agent.mapper.*;
+import com.inspect.agent.report.*;
+import com.inspect.agent.service.*;
+import lombok.*;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 巡检核心接口，提供任务控制、报告查看、日志查询和 AI 对话功能。

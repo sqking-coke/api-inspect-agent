@@ -20,7 +20,7 @@ mybatis-plus:
 llm:
   enabled: true
   api-url: https://api.deepseek.com/v1/chat/completions
-  api-key: sk-0db2f92b52374ff694630f38f1695dbf
+  api-key: sk-xxxxxxxxxxxxxxxxxxxx
   model: deepseek-v4-flash
   max-tokens: 4096
   temperature: 0.3
