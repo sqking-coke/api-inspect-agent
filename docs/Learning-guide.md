@@ -1,7 +1,7 @@
-# 接口自动化巡检Agent — 教学级应用文档
+# 接口自动化巡检Agent — 学习指南
 
-> **项目地址**：https://github.com/sqking-coke/api-inspect-agent
-> **适用场景**：课堂教学 / 新人培训 / 项目答辩 / 简历深挖
+> **项目地址**：https://github.com/sqking-coke/api-inspect-agent <br>
+> **适用对象**：Java 后端开发者，具备 Spring Boot 基础，想深入学习 AI Agent 架构设计
 
 ---
 
